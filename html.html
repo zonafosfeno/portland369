@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+    <script src="../../../dist/aframe-master.min.js"></script>
+    <script src="js/components/aframe-tooltip-component.js"></script>
+    <script src="js/components/camera-position.js"></script>
+    <script src="js/components/link-controls.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.5.x/dist/aframe-environment-component.min.js"></script>
+    <script src="../../js/info-message.js"></script>
+  </head>
+  <body>
+    <a-scene cursor="rayOrigin: mouse" raycaster="objects: [link]">
+      <a-assets>
+        <img id="tiktok" crossorigin="anonymous" 
+             src="https://imgs.search.brave.com/zTBLtlFSrJI8Q6GG8cTt1xYIT1651_3-9uCBRfLdbjY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90aHVt/YnMuZHJlYW1zdGlt/ZS5jb20vYi90aWt0/b2stc2ltcGxlLXZl/Y3Rvci1maWxsZWQt/ZmxhdC1zb2NpYWwt/bWVkaWEtaWNvbnMvdGlrdG9rLWxvZ28tc29saWQtYmxhY2stcGljdG9ncmFtLWlzb2xhdGVkLXdoaXRlLWJhY2tncm91bmQtMTU5MDI5MjI1LmpwZw">
+        <a-asset-item id="messageText" src="message.html"></a-asset-item>
+      </a-assets>
+      
+      <!-- Objetos 3D -->
+      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      
+      <!-- ENLACE CORREGIDO: Movido a posición visible -->
+      <a-link 
+        href="https://vm.tiktok.com/ZMDSVUe9h/" 
+        position="0 1.5 -3" 
+        image="#tiktok" 
+        title="Click para TikTok"
+        peekMode="true"
+        radius="0.3"
+        visualAspect="halfEllipse">
+      </a-link>
+      
+      <!-- Cursor para hacer clic -->
+      <a-cursor></a-cursor>
+      
+      <a-sky color="#87CEEB"></a-sky> <!-- Color celeste más natural -->
+      
+      <!-- Cámara (opcional, A-Frame ya incluye una) -->
+      <a-entity camera="userHeight: 1.6" look-controls wasd-controls></a-entity>
+      
+      <a-entity id="leftHand" link-controls="hand: left"></a-entity>
+      <a-entity id="rightHand" link-controls="hand: right"></a-entity>
+    </a-scene>
+  </body>
+</html>
